@@ -402,14 +402,22 @@ button { font-family: inherit; cursor: pointer; border: none; }
 /* ---------------------------------------------------------
    Simplifica tu pago
 --------------------------------------------------------- */
-.seccion { padding: 56px 0; }
+/* ---------------------------------------------------------
+   Simplifica tu pago
+--------------------------------------------------------- */
 
-.pago {
-  display: flex;
-  border-radius: var(--radio-l);
-  overflow: hidden;
-  box-shadow: var(--sombra);
+.seccion{
+    padding:56px 0;
 }
+
+.pago{
+    display:flex;
+    border-radius:26px;
+    overflow:hidden;
+    box-shadow:var(--sombra);
+}
+
+/* Tarjeta izquierda */
 
 .pago-izquierda{
     background:
@@ -422,10 +430,10 @@ button { font-family: inherit; cursor: pointer; border: none; }
 
     color:var(--blanco);
 
-    padding:48px 40px;
-
     width:32%;
-    min-width:260px;
+    min-width:320px;
+
+    padding:55px 45px;
 
     display:flex;
     flex-direction:column;
@@ -435,37 +443,44 @@ button { font-family: inherit; cursor: pointer; border: none; }
     overflow:hidden;
 }
 
-.pago-izquierda h2 {
-  font-size: 28px;
-  line-height: 1.2;
+.pago-izquierda h2{
+    font-size:30px;
+    line-height:1.15;
+    margin:0;
 }
 
-.pago-izquierda h2 .verde { color: var(--verde-texto); display: block; }
-
-.pago-izquierda p {
-  margin-top: 12px;
-  font-size: 14px;
-  color: #cfd9e6;
-  max-width: 260px;
+.pago-izquierda h2 .verde{
+    display:block;
+    color:var(--verde-texto);
 }
 
-.pago-derecha {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: var(--blanco);
+.pago-izquierda p{
+    margin-top:18px;
+    max-width:260px;
+    color:#dbe4f0;
+    font-size:15px;
+    line-height:1.7;
+}
+
+/* Tarjetas */
+
+.pago-derecha{
+    flex:1;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:#fff;
 }
 
 .tarjeta-pago{
+    position:relative;
+
     display:grid;
     grid-template-columns:120px 1fr;
-    grid-template-rows:auto auto auto;
     align-items:center;
 
     padding:34px 34px;
-    border-left:1px solid var(--gris-borde);
 
-    position:relative;
+    border-left:1px solid var(--gris-borde);
 }
 
 .tarjeta-pago:first-child{
@@ -477,36 +492,68 @@ button { font-family: inherit; cursor: pointer; border: none; }
     background:#f2f4ea;
 }
 
-.tarjeta-pago .icono-doc{
-    grid-row:1 / span 3;
+/* Iconos */
+
+.icono-doc{
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
-.tarjeta-pago .icono-doc img{
+.icono-doc img{
     width:95px;
     height:auto;
     display:block;
 }
-.tarjeta-pago h3 { font-size: 19px; color: var(--azul-oscuro); }
-.tarjeta-pago p { font-size: 13.5px; color: var(--gris-texto); max-width: 220px; }
 
-.enlace-circulo {
-  margin-top: 6px;
-  display: flex; align-items: center; gap: 10px;
-  font-weight: 700; font-size: 14px;
+/* Títulos */
+
+.tarjeta-pago h3{
+    margin:0;
+    color:var(--azul-oscuro);
+    font-size:20px;
+    font-weight:700;
 }
 
-.enlace-circulo .circulo {
-  width: 32px; height: 32px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--blanco);
+/* Texto */
+
+.tarjeta-pago p{
+    margin-top:10px;
+    color:var(--gris-texto);
+    font-size:15px;
+    line-height:1.6;
+    max-width:240px;
 }
 
-.tarjeta-pago:first-child .circulo { background: var(--azul-boton); }
-.tarjeta-pago:last-child .circulo { background: var(--verde); }
+/* Botón */
 
+.enlace-circulo{
+    position:absolute;
+    right:30px;
+    bottom:30px;
+}
+
+.enlace-circulo .circulo{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+}
+
+.tarjeta-pago:first-child .circulo{
+    background:var(--azul-boton);
+}
+
+.tarjeta-pago:last-child .circulo{
+    background:var(--verde);
+}
 /* ---------------------------------------------------------
    Programas ambientales
 --------------------------------------------------------- */
