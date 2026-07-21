@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EPC Cajicá — Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2A44;
+    --navy-2:#123A5C;
+    --blue:#1565C0;
+    --blue-dark:#0D4A8F;
+    --blue-light:#EAF2FB;
+    --green:#5CB85C;
+    --green-dark:#3E9142;
+    --green-light:#EEF5E9;
+    --text:#152A3A;
+    --text-soft:#5A6E7A;
+    --line:#E4EAEF;
+    --bg:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:'Inter',sans-serif; color:var(--text); background:#F6F9FC; line-height:1.6;}
+  h1,h2,h3,h4,.display{font-family:'Poppins',sans-serif;}
+  a{text-decoration:none; color:inherit;}
+  img,svg{display:block; max-width:100%;}
+  a:focus-visible, button:focus-visible{outline:3px solid #FFC24B; outline-offset:2px; border-radius:4px;}
+  .skip-link{position:absolute; left:-9999px; top:0; background:var(--navy); color:#fff; padding:12px 20px; z-index:999; border-radius:0 0 8px 0;}
+  .skip-link:focus{left:0;}
+  .container{max-width:1240px; margin:0 auto; padding:0 32px;}
+
+  /* TOPBAR */
+  .topbar{background:var(--navy); color:#cfe0ec; font-size:13px;}
+  .topbar .container{display:flex; justify-content:space-between; align-items:center; height:40px; flex-wrap:wrap;}
+  .topbar-left{display:flex; gap:22px; align-items:center;}
+  .topbar-left span{display:flex; align-items:center; gap:6px;}
+  .topbar-right{display:flex; gap:22px; align-items:center;}
+  .topbar-right a{color:#cfe0ec; opacity:.95;}
+  .topbar-right a:hover{opacity:1; text-decoration:underline;}
+  .topbar-social{display:flex; gap:10px; margin-left:6px;}
+  .topbar-social span{width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,0.12); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700;}
+
+  /* HEADER */
+  header.main{background:#fff; border-bottom:1px solid var(--line);}
+  nav.main{display:flex; align-items:center; justify-content:space-between; height:92px; gap:24px;}
+  .logo{display:flex; align-items:center; gap:12px;}
+  .logo-mark{width:46px; height:46px;}
+  .logo-text{font-family:'Poppins'; font-weight:700; font-size:14px; color:var(--navy); line-height:1.3;}
+  .nav-links{display:flex; gap:30px; list-style:none; margin:0; padding:0; font-weight:600; font-size:14.5px;}
+  .nav-links a{color:var(--text); padding-bottom:6px; border-bottom:2px solid transparent;}
+  .nav-links a.active{color:var(--green-dark); border-bottom-color:var(--green);}
+  .nav-links a:hover{border-bottom-color:var(--blue);}
+  .nav-right{display:flex; align-items:center; gap:16px;}
+  .btn-signin{background:var(--green); color:#fff; padding:11px 20px; border-radius:999px; font-weight:600; font-size:14px; display:flex; align-items:center; gap:8px;}
+  .btn-signin:hover{background:var(--green-dark);}
+  .icon-btn{width:38px; height:38px; border-radius:50%; border:1.5px solid var(--line); display:flex; align-items:center; justify-content:center; background:#fff; cursor:pointer;}
+  .menu-toggle{display:none; background:none; border:none;}
+
+  /* HERO */
+  .hero{position:relative; background:#fff; overflow:hidden; padding:64px 0 0; box-shadow:0 1px 0 var(--line);}
+  .hero-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:40px; align-items:center;}
+  .eyebrow{font-weight:700; font-size:13px; color:var(--blue); letter-spacing:.04em; margin-bottom:14px;}
+  .hero h1{font-size:42px; line-height:1.18; font-weight:700; color:var(--navy); margin:0 0 18px;}
+  .hero h1 .g{color:var(--green-dark);}
+  .hero p.lead{font-size:16px; color:var(--text-soft); max-width:420px; margin:0 0 30px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
+  .btn{display:inline-flex; align-items:center; gap:10px; padding:14px 26px; border-radius:999px; font-weight:600; font-size:14.5px;}
+  .btn-primary{background:var(--blue); color:#fff;}
+  .btn-primary:hover{background:var(--blue-dark);}
+  .btn-outline{background:#fff; color:var(--blue); border:1.5px solid var(--blue);}
+  .btn-outline:hover{background:var(--blue-light);}
+  .btn-arrow{width:20px; height:20px; border-radius:50%; background:rgba(255,255,255,0.25); display:flex; align-items:center; justify-content:center; font-size:12px;}
+  .btn-outline .btn-arrow{background:var(--blue); color:#fff;}
+
+  .hero-art{position:relative; height:400px; border-radius:0 0 0 60px; overflow:hidden;}
+  .hero-art .sky{position:absolute; inset:0; background:linear-gradient(180deg,#BFE0F5 0%, #DDEEF7 45%, #EAF4EC 100%);}
+  .hero-art .mountains{position:absolute; bottom:110px; left:0; right:0; height:180px;}
+  .hero-art .water{position:absolute; bottom:0; left:0; right:0; height:130px; background:linear-gradient(180deg,#2E75B6,#0D4A8F);}
+  .hero-art .droplet{position:absolute; border-radius:50%; background:rgba(255,255,255,0.35);}
+  .wave-overlay{position:absolute; bottom:0; left:0; width:100%;}
+  .green-corner{position:absolute; bottom:-30px; right:-30px; width:220px; height:220px; background:var(--green); opacity:.85; clip-path:polygon(100% 100%, 0 100%, 100% 0);}
+
+  /* QUICK ACCESS CARD */
+  .quick-wrap{position:relative; z-index:5; margin:-46px 0 0;}
+  .quick-card{background:#fff; border-radius:22px; box-shadow:0 20px 44px rgba(11,42,68,0.16); border:1px solid var(--line); padding:32px 28px; display:grid; grid-template-columns:repeat(9,1fr); gap:22px 12px;}
+  .quick-item{display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center;}
+  .quick-item .ic{width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:var(--blue-light); border-radius:12px;}
+  .quick-item span{font-size:12.5px; font-weight:600; color:var(--text); line-height:1.3;}
+  .quick-item:hover .ic{background:#DCEBFB;}
+
+  /* SECTIONS GENERIC */
+  .section{padding:80px 0;}
+  .section-title{font-size:30px; font-weight:700; color:var(--navy); margin:0 0 8px;}
+  .section-title .g{color:var(--green-dark);}
+  .section-sub{color:var(--text-soft); font-size:15px; max-width:420px; margin:0 0 20px;}
+  .mini-line{width:44px; height:4px; background:var(--green); border-radius:4px; margin-top:14px;}
+
+  /* PAYMENT */
+  .pay-grid{display:grid; grid-template-columns:0.8fr 1fr 1fr; gap:20px; align-items:center;}
+  .pay-card{border-radius:20px; padding:30px; display:flex; align-items:center; gap:20px;}
+  .pay-card.blue{background:var(--blue-light);}
+  .pay-card.green{background:var(--green-light);}
+  .pay-ic{width:56px; height:56px; flex:0 0 auto;}
+  .pay-card h3{font-size:19px; margin:0 0 6px; color:var(--navy);}
+  .pay-card p{font-size:13.5px; color:var(--text-soft); margin:0;}
+  .pay-go{margin-left:auto; width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; flex:0 0 auto;}
+  .pay-card.blue .pay-go{background:var(--blue);}
+  .pay-card.green .pay-go{background:var(--green-dark);}
+
+  /* ENVIRONMENTAL PROGRAMS */
+  .env-band{position:relative; background:linear-gradient(120deg, rgba(11,42,68,0.94), rgba(18,58,92,0.9)), linear-gradient(120deg,#2b3a2f,#1b2b22); border-radius:28px; overflow:hidden; padding:52px 48px; color:#fff; display:grid; grid-template-columns:0.85fr 1.6fr; gap:20px; align-items:center;}
+  .env-band .green-corner{opacity:.9;}
+  .env-band h3{font-size:26px; margin:0 0 10px;}
+  .env-band h3 .g{color:#8FD37B;}
+  .env-band p{color:#CBDDE7; font-size:14px; margin:0 0 20px; max-width:260px;}
+  .env-btn{background:var(--green); color:#fff; padding:11px 20px; border-radius:999px; font-weight:600; font-size:13.5px; display:inline-flex; gap:8px; align-items:center;}
+  .env-items{display:flex; justify-content:space-around; text-align:center;}
+  .env-item{padding:0 18px; border-left:1px solid rgba(255,255,255,0.18);}
+  .env-item:first-child{border-left:none;}
+  .env-item .ic{width:42px; height:42px; margin:0 auto 12px;}
+  .env-item h4{margin:0 0 6px; font-size:16px;}
+  .env-item p{margin:0; font-size:12.5px; color:#CBDDE7;}
+
+  /* PROCEDURES */
+  .proc-grid{display:grid; grid-template-columns:0.75fr 1fr 1fr 1fr; gap:20px; align-items:start;}
+  .proc-card{border-radius:18px; padding:26px; display:flex; flex-direction:column; gap:14px;}
+  .proc-card.c1{background:var(--blue-light);}
+  .proc-card.c2{background:var(--green-light);}
+  .proc-card.c3{background:#EEF1F6;}
+  .proc-ic{width:44px; height:44px;}
+  .proc-card h4{font-size:16px; margin:0; color:var(--navy);}
+  .proc-card p{font-size:13px; color:var(--text-soft); margin:0;}
+  .proc-btn{display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:13px; padding:8px 16px; border-radius:999px; width:fit-content;}
+  .proc-card.c1 .proc-btn{background:#fff; color:var(--blue); border:1.5px solid var(--blue);}
+  .proc-card.c2 .proc-btn{background:#fff; color:var(--green-dark); border:1.5px solid var(--green-dark);}
+  .proc-card.c3 .proc-btn{background:#fff; color:var(--blue); border:1.5px solid var(--blue);}
+
+  /* SURVEY */
+  .survey{position:relative; background:linear-gradient(120deg,#0D4A8F,#1565C0); border-radius:26px; overflow:hidden; padding:40px 48px; display:flex; align-items:center; gap:30px; color:#fff;}
+  .survey .phone{width:56px; height:56px; flex:0 0 auto;}
+  .survey h3{font-size:22px; margin:0 0 6px;}
+  .survey p{font-size:14px; color:#CFE2EF; margin:0; max-width:420px;}
+  .survey .go{margin-left:auto; background:var(--green); color:#fff; padding:12px 22px; border-radius:999px; font-weight:600; font-size:14px; display:flex; align-items:center; gap:8px; white-space:nowrap;}
+  .survey .wave-deco{position:absolute; bottom:0; left:0; right:0; opacity:.5;}
+
+  /* NEWS + STATS */
+  .news-stats{display:grid; grid-template-columns:1.6fr 1fr; gap:32px;}
+  .row-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:20px;}
+  .row-head h3{font-size:22px; margin:0; color:var(--navy);}
+  .row-head a{font-size:13.5px; font-weight:600; color:var(--blue); display:flex; align-items:center; gap:6px;}
+  .news-grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .news-card{border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#fff; box-shadow:0 6px 18px rgba(11,42,68,0.06);}
+  .news-img{height:110px; background:linear-gradient(135deg,#B9D9EE,#CFE7D4); position:relative;}
+  .news-cat{position:absolute; top:10px; left:10px; font-size:10.5px; font-weight:700; color:#fff; padding:4px 10px; border-radius:999px;}
+  .cat-inst{background:var(--blue);}
+  .cat-amb{background:var(--green-dark);}
+  .news-body{padding:14px;}
+  .news-date{font-size:11.5px; color:var(--text-soft); display:block; margin-bottom:6px;}
+  .news-body h4{font-size:13.5px; margin:0 0 10px; line-height:1.4; font-family:'Inter'; font-weight:600;}
+  .news-body a{font-size:12.5px; font-weight:700; color:var(--blue); display:flex; align-items:center; gap:6px;}
+
+  .stats-card{background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; box-shadow:0 6px 18px rgba(11,42,68,0.06);}
+  .stats-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .stat-item{display:flex; gap:10px; align-items:flex-start;}
+  .stat-ic{width:30px; height:30px; flex:0 0 auto;}
+  .stat-item .num{font-size:19px; font-weight:700; color:var(--navy); font-family:'Poppins';}
+  .stat-item .label{font-size:11.5px; color:var(--text-soft);}
+
+  /* INSTITUTIONAL CAROUSEL */
+  .inst-row{display:flex; align-items:center; gap:16px;}
+  .inst-arrow{width:34px; height:34px; border-radius:50%; border:1.5px solid var(--line); display:flex; align-items:center; justify-content:center; flex:0 0 auto; cursor:pointer; background:#fff;}
+  .inst-strip{display:flex; gap:36px; overflow-x:auto; flex:1; padding:6px 0;}
+  .inst-chip{flex:0 0 auto; font-weight:700; font-size:14px; color:var(--navy); display:flex; align-items:center; gap:8px; white-space:nowrap;}
+  .inst-dots{display:flex; gap:6px; justify-content:center; margin-top:16px;}
+  .inst-dots span{width:6px; height:6px; border-radius:50%; background:var(--line);}
+  .inst-dots span.on{background:var(--blue);}
+
+  /* FOOTER */
+  footer{position:relative; background:var(--blue-light); padding:64px 0 0; overflow:hidden;}
+  .footer-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:36px; padding-bottom:36px; position:relative; z-index:2;}
+  .footer-logo{display:flex; gap:10px; align-items:center; margin-bottom:14px;}
+  footer h4{font-size:14.5px; color:var(--navy); margin:0 0 16px;}
+  footer p{font-size:13.5px; color:var(--text-soft); margin:0 0 16px; max-width:260px;}
+  .foot-social{display:flex; gap:10px;}
+  .foot-social span{width:32px; height:32px; border-radius:50%; background:#fff; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--navy);}
+  footer ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; font-size:13.5px;}
+  footer ul li{display:flex; align-items:center; gap:8px; color:var(--text-soft);}
+  .foot-bottom{border-top:1px solid rgba(11,42,68,0.1); padding:20px 0; display:flex; justify-content:space-between; font-size:12.5px; color:var(--text-soft); position:relative; z-index:2; flex-wrap:wrap; gap:10px;}
+  .foot-wave{position:absolute; bottom:0; left:0; width:340px; opacity:.9;}
+
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{height:260px;}
+    .quick-wrap{margin-top:28px;}
+    .quick-card{grid-template-columns:repeat(3,1fr); gap:26px 12px;}
+    .pay-grid, .proc-grid{grid-template-columns:1fr;}
+    .env-band{grid-template-columns:1fr;}
+    .env-items{flex-wrap:wrap; gap:18px;}
+    .news-stats{grid-template-columns:1fr;}
+    .news-grid3{grid-template-columns:1fr 1fr 1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:720px){
+    .nav-links{display:none;}
+    .menu-toggle{display:block;}
+    .hero h1{font-size:30px;}
+    .quick-card{grid-template-columns:repeat(2,1fr);}
+    .news-grid3{grid-template-columns:1fr;}
+    .stats-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .survey{flex-direction:column; text-align:center;}
+    .survey .go{margin-left:0;}
+  }
+  @media (max-width:480px){
+    .quick-card{grid-template-columns:repeat(2,1fr); padding:24px 18px;}
+    .hero-grid, .container{padding-left:20px; padding-right:20px;}
+  }
+</style>
+</head>
+<body>
+<a href="#contenido" class="skip-link">Saltar al contenido principal</a>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span>📍 Cajicá, Cundinamarca</span>
+      <span>📞 (601) 879 5356</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#">Transparencia</a>
+      <a href="#">Atención al ciudadano</a>
+      <a href="#">Noticias</a>
+      <a href="#">Contacto</a>
+      <div class="topbar-social">
+        <span>f</span><span>x</span><span>▶</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="main">
+  <div class="container">
+    <nav class="main" aria-label="Navegación principal">
+      <a href="#" class="logo">
+        <svg class="logo-mark" viewBox="0 0 60 60"><path d="M30 8c9 11 16 19 16 28a16 16 0 0 1-32 0c0-9 7-17 16-28z" fill="#1565C0"/><path d="M38 30c4 5 7 9 6 13a9 9 0 0 1-17-3" fill="none" stroke="#5CB85C" stroke-width="3" stroke-linecap="round"/></svg>
+        <span class="logo-text">EPC<br>Empresa de Servicios<br>Públicos de Cajicá</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Inicio</a></li>
+        <li><a href="#empresa">La Empresa</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#atencion">Atención al ciudadano</a></li>
+        <li><a href="#contratacion">Contratación</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="#" class="btn-signin">👤 Iniciar sesión</a>
+        <button class="icon-btn" aria-label="Buscar">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
+        </button>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">AGUA QUE NOS CONECTA, FUTURO QUE CONSTRUIMOS</div>
+        <h1>Conectamos vida, transformamos bienestar en <span class="g">Cajicá</span></h1>
+        <p class="lead">Trabajamos cada día para ofrecerte servicios públicos eficientes, sostenibles y de calidad.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary">Paga tu factura aquí <span class="btn-arrow">→</span></a>
+          <a href="#" class="btn btn-outline">Servicios en línea <span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sky"></div>
+        <svg class="mountains" viewBox="0 0 500 180" preserveAspectRatio="none">
+          <polygon points="0,180 60,70 130,140 200,50 260,120 320,60 400,130 460,80 500,120 500,180" fill="#4C7A5A" opacity="0.55"/>
+          <polygon points="0,180 90,100 160,150 230,90 300,140 380,95 460,145 500,120 500,180" fill="#3A6B4C" opacity="0.65"/>
+          <rect x="330" y="118" width="46" height="34" rx="3" fill="#F4F6F5" opacity="0.9"/>
+          <rect x="338" y="104" width="10" height="16" fill="#F4F6F5" opacity="0.9"/>
+        </svg>
+        <div class="water"></div>
+        <div class="droplet" style="width:14px;height:14px;bottom:70px;left:40%;"></div>
+        <div class="droplet" style="width:9px;height:9px;bottom:100px;left:55%;"></div>
+        <div class="droplet" style="width:11px;height:11px;bottom:50px;left:70%;"></div>
+        <svg class="wave-overlay" viewBox="0 0 500 90" preserveAspectRatio="none">
+          <path d="M0,40 C80,10 160,70 250,35 C340,0 420,55 500,25 L500,90 L0,90 Z" fill="#0D4A8F" opacity="0.85"/>
+          <path d="M0,60 C90,30 180,85 270,55 C360,25 430,70 500,45 L500,90 L0,90 Z" fill="#1565C0"/>
+        </svg>
+        <div class="green-corner"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK ACCESS -->
+  <div class="container quick-wrap">
+    <div class="quick-card">
+      <a href="#" class="quick-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3.5 2.7-6 6-6s6 2.5 6 6M10 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/></svg></span><span>¿Quiénes somos?</span></a>
+      <a href="#" class="quick-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8"><path d="M6 3v7a5 5 0 0 0 10 0V3M4 3h4M16 3h4"/><circle cx="11" cy="19" r="2.5"/></svg></span><span>Alcantarillado</span></a>
+      <a href="#" class="quick-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8"><path d="M6 3v7a5 5 0 0 0 10 0V3M4 3h4M16 3h4"/><circle cx="11" cy="19" r="2.5"/></svg></span><span>Acueducto</span></a>
+      <a href="#" class="quick-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8"><path d="M4 7h16l-1.5 12a2 2 0 0 1-2 2h-9a2 2 0 0 1-2-2L4 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></span><span>Aseo</span></a>
+      <a href="#" class="quick-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span><span>Edictos</span></a>
+      <a href="#" class="quick-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg></span><span>Administrativa</span></a>
+      <a href="#" class="quick-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8"><path d="M8 12h8M8 16h5M6 3h12l1 4H5l1-4z"/><path d="M5 7v13h14V7"/></svg></span><span>Comercial</span></a>
+      <a href="#" class="quick-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8"><path d="M8 21l3-9-3-2 5-6 5 6-3 2 3 9"/></svg></span><span>Contratación</span></a>
+      <a href="#" class="quick-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span><span>Gerencia</span></a>
+    </div>
+  </div>
+
+  <!-- SIMPLIFICA TU PAGO -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <div class="pay-grid">
+        <div>
+          <h2 class="section-title">Simplifica<br>tu <span class="g">pago</span></h2>
+          <p class="section-sub">Realiza tus pagos de manera rápida, fácil y segura desde nuestros canales digitales.</p>
+        </div>
+        <div class="pay-card blue">
+          <svg class="pay-ic" viewBox="0 0 48 48" fill="none"><rect x="10" y="6" width="24" height="34" rx="3" fill="#fff" stroke="var(--blue)" stroke-width="2"/><rect x="14" y="24" width="16" height="10" rx="2" fill="var(--blue)"/><line x1="15" y1="12" x2="29" y2="12" stroke="var(--blue)" stroke-width="2"/><line x1="15" y1="17" x2="29" y2="17" stroke="var(--blue)" stroke-width="2"/></svg>
+          <div>
+            <h3>Paga tu factura aquí</h3>
+            <p>Realiza tu pago en línea de forma rápida y segura.</p>
+          </div>
+          <span class="pay-go">→</span>
+        </div>
+        <div class="pay-card green">
+          <svg class="pay-ic" viewBox="0 0 48 48" fill="none"><rect x="10" y="6" width="24" height="34" rx="3" fill="#fff" stroke="var(--green-dark)" stroke-width="2"/><path d="M16 26l5 5 10-11" stroke="var(--green-dark)" stroke-width="2.5" fill="none"/><line x1="15" y1="12" x2="29" y2="12" stroke="var(--green-dark)" stroke-width="2"/><line x1="15" y1="17" x2="24" y2="17" stroke="var(--green-dark)" stroke-width="2"/></svg>
+          <div>
+            <h3>Guía de pago</h3>
+            <p>Consulta tu factura y opciones de pago.</p>
+          </div>
+          <span class="pay-go">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMAS AMBIENTALES -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="env-band">
+        <div>
+          <h3>Programas<br><span class="g">ambientales</span> 🌿</h3>
+          <p>Comprometidos con el cuidado del agua y nuestro entorno.</p>
+          <a href="#" class="env-btn">Conoce más →</a>
+        </div>
+        <div class="env-items">
+          <div class="env-item">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M7 7l3-3 3 3M4 12l3-3 3 3M13 12l3-3 3 3M10 17l3-3 3 3"/></svg>
+            <h4>PGIRS</h4>
+            <p>Plan de Gestión Integral de Residuos Sólidos</p>
+          </div>
+          <div class="env-item">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#8FD37B" stroke-width="1.6"><path d="M12 21c-4-2-7-6-7-11a7 7 0 0 1 14 0c0 5-3 9-7 11z"/><path d="M12 12v9"/></svg>
+            <h4>PUEAA</h4>
+            <p>Plan de Uso Eficiente y Ahorro del Agua</p>
+          </div>
+          <div class="env-item">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#8FD3D9" stroke-width="1.6"><path d="M12 3c4 5 7 8.5 7 12a7 7 0 1 1-14 0c0-3.5 3-7 7-12z"/></svg>
+            <h4>Plan de saneamiento</h4>
+            <p>Comprometidos con la calidad de vida y el entorno</p>
+          </div>
+        </div>
+        <div class="green-corner" style="opacity:.5"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAMITES -->
+  <section class="section" id="atencion">
+    <div class="container">
+      <div class="proc-grid">
+        <div>
+          <h2 class="section-title">Trámites <span class="g">EPC</span></h2>
+          <p class="section-sub">Gestiona tus solicitudes de manera fácil y eficiente.</p>
+          <div class="mini-line"></div>
+        </div>
+        <div class="proc-card c1">
+          <svg class="proc-ic" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.7"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M9 21h6M12 17v4"/></svg>
+          <h4>Trámites en línea</h4>
+          <p>Realiza tus trámites desde la comodidad de tu hogar.</p>
+          <a href="#" class="proc-btn">Ir ahora →</a>
+        </div>
+        <div class="proc-card c2">
+          <svg class="proc-ic" viewBox="0 0 24 24" fill="none" stroke="var(--green-dark)" stroke-width="1.7"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>
+          <h4>Trámites presenciales</h4>
+          <p>Conoce los puntos de atención y horarios disponibles.</p>
+          <a href="#" class="proc-btn">Ver puntos →</a>
+        </div>
+        <div class="proc-card c3">
+          <svg class="proc-ic" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.7"><path d="M4 5h16v11H8l-4 4V5z"/><circle cx="9" cy="10" r="0.6" fill="var(--blue)"/><circle cx="12" cy="10" r="0.6" fill="var(--blue)"/><circle cx="15" cy="10" r="0.6" fill="var(--blue)"/></svg>
+          <h4>PQRS</h4>
+          <p>Peticiones, quejas, reclamos y sugerencias.</p>
+          <a href="#" class="proc-btn">Radicar PQRS →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SURVEY -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="survey">
+        <svg class="phone" viewBox="0 0 48 48" fill="none"><rect x="14" y="4" width="20" height="40" rx="4" fill="#fff"/><circle cx="24" cy="38" r="1.6" fill="var(--blue)"/><path d="M20 15l3 3 5-6" stroke="var(--green-dark)" stroke-width="2" fill="none"/><line x1="18" y1="24" x2="30" y2="24" stroke="#CBDDE7" stroke-width="1.5"/><line x1="18" y1="28" x2="30" y2="28" stroke="#CBDDE7" stroke-width="1.5"/></svg>
+        <div>
+          <h3>Tu opinión nos impulsa</h3>
+          <p>Participa en nuestra encuesta de satisfacción y ayúdanos a mejorar nuestros servicios.</p>
+        </div>
+        <a href="#" class="go">Ir a la encuesta →</a>
+        <svg class="wave-deco" viewBox="0 0 500 60" preserveAspectRatio="none"><path d="M0,30 C100,0 200,55 300,25 C400,0 460,40 500,15 L500,60 L0,60Z" fill="rgba(255,255,255,0.12)"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS + STATS -->
+  <section class="section" id="contratacion">
+    <div class="container news-stats">
+      <div>
+        <div class="row-head">
+          <h3>Noticias</h3>
+          <a href="#">Ver todas →</a>
+        </div>
+        <div class="news-grid3">
+          <div class="news-card">
+            <div class="news-img"><span class="news-cat cat-inst">Institucional</span></div>
+            <div class="news-body">
+              <span class="news-date">15 may 2025</span>
+              <h4>Nuevo proyecto para mejorar el servicio de acueducto en sectores del municipio</h4>
+              <a href="#">Leer más →</a>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-img"><span class="news-cat cat-amb">Ambiental</span></div>
+            <div class="news-body">
+              <span class="news-date">08 may 2025</span>
+              <h4>Jornada de limpieza y educación ambiental con la comunidad</h4>
+              <a href="#">Leer más →</a>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-img"><span class="news-cat cat-amb">Servicio</span></div>
+            <div class="news-body">
+              <span class="news-date">02 may 2025</span>
+              <h4>Recomendaciones para el uso eficiente y ahorro del agua</h4>
+              <a href="#">Leer más →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="row-head">
+          <h3>EPC en cifras</h3>
+          <a href="#">Ver más →</a>
+        </div>
+        <div class="stats-card">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <svg class="stat-ic" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M14 20c.3-2.7 2-4.6 5-4.6"/></svg>
+              <div><div class="num">98.456</div><div class="label">Usuarios atendidos</div></div>
+            </div>
+            <div class="stat-item">
+              <svg class="stat-ic" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.7"><path d="M12 3c4 5 7 8.5 7 12a7 7 0 1 1-14 0c0-3.5 3-7 7-12z"/></svg>
+              <div><div class="num">1.250 km</div><div class="label">Red de acueducto</div></div>
+            </div>
+            <div class="stat-item">
+              <svg class="stat-ic" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.7"><path d="M6 3v7a5 5 0 0 0 10 0V3"/></svg>
+              <div><div class="num">980 km</div><div class="label">Red de alcantarillado</div></div>
+            </div>
+            <div class="stat-item">
+              <svg class="stat-ic" viewBox="0 0 24 24" fill="none" stroke="var(--green-dark)" stroke-width="1.7"><path d="M12 21c-4-2-7-6-7-11a7 7 0 0 1 14 0c0 5-3 9-7 11z"/></svg>
+              <div><div class="num">96%</div><div class="label">Cobertura en recolección de aseo</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTITUTIONAL -->
+  <section class="section" style="padding-top:0;" id="empresa">
+    <div class="container">
+      <h3 style="font-size:20px; color:var(--navy); margin:0 0 20px;">Entidades y enlaces de interés</h3>
+      <div class="inst-row">
+        <button class="inst-arrow" aria-label="Anterior">‹</button>
+        <div class="inst-strip">
+          <span class="inst-chip">🛡️ Alcaldía de Cajicá</span>
+          <span class="inst-chip">🧵 Cajicá Tejiendo Futuro</span>
+          <span class="inst-chip">🇨🇴 Gobierno de Colombia</span>
+          <span class="inst-chip">🔧 Superservicios</span>
+          <span class="inst-chip">🏠 MinVivienda</span>
+        </div>
+        <button class="inst-arrow" aria-label="Siguiente">›</button>
+      </div>
+      <div class="inst-dots"><span class="on"></span><span></span><span></span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-logo">
+        <svg width="40" height="40" viewBox="0 0 60 60"><path d="M30 8c9 11 16 19 16 28a16 16 0 0 1-32 0c0-9 7-17 16-28z" fill="#1565C0"/></svg>
+        <strong style="color:var(--navy); font-family:'Poppins';">EPC<br><small style="font-weight:500;">Empresa de Servicios Públicos de Cajicá</small></strong>
+      </div>
+      <p>Trabajamos por el bienestar de nuestra comunidad, brindando servicios públicos eficientes y sostenibles.</p>
+      <div class="foot-social"><span>f</span><span>ig</span><span>x</span><span>▶</span></div>
+    </div>
+    <div>
+      <h4>Enlaces rápidos</h4>
+      <ul><li>Inicio</li><li>La Empresa</li><li>Servicios</li><li>Atención al ciudadano</li><li>Transparencia</li><li>Noticias</li><li>Contacto</li></ul>
+    </div>
+    <div>
+      <h4>Atención al ciudadano</h4>
+      <ul>
+        <li>📞 (601) 879 5356</li>
+        <li>💬 WhatsApp 318 347 6418</li>
+        <li>✉️ atencionalusuario@epc.gov.co</li>
+        <li>📍 Calle 1a #0-40, Cajicá, Cundinamarca</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Horarios de atención</h4>
+      <ul><li>Lunes a viernes</li><li>7:30 a.m. a 4:30 p.m.</li></ul>
+      <h4 style="margin-top:20px;">Líneas de emergencia</h4>
+      <ul><li>Acueducto: 318 347 6418</li><li>Alcantarillado: 318 347 6418</li><li>Aseo: 318 347 6418</li></ul>
+    </div>
+  </div>
+  <div class="foot-bottom container">
+    <span>© 2025 Empresa de Servicios Públicos de Cajicá. Todos los derechos reservados.</span>
+    <span><a href="#">Política de privacidad</a> · <a href="#">Términos y condiciones</a> · <a href="#">Mapa del sitio</a></span>
+  </div>
+  <svg class="foot-wave" viewBox="0 0 340 140"><path d="M0,140 C40,90 20,60 60,40 C100,20 90,70 140,60 C180,50 160,10 220,20 L340,20 L340,140 Z" fill="#1565C0" opacity="0.5"/><circle cx="300" cy="30" r="10" fill="#5CB85C" opacity="0.7"/></svg>
+</footer>
+
+</body>
+</html>
