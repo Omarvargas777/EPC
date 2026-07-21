@@ -456,22 +456,39 @@ button { font-family: inherit; cursor: pointer; border: none; }
   background: var(--blanco);
 }
 
-.tarjeta-pago {
-  padding: 40px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  border-left: 1px solid var(--gris-borde);
+.tarjeta-pago{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    grid-template-rows:auto auto auto;
+    align-items:center;
+
+    padding:34px 34px;
+    border-left:1px solid var(--gris-borde);
+
+    position:relative;
 }
 
-.tarjeta-pago:first-child { background: #eef3fb; border-left: none; }
-.tarjeta-pago:last-child { background: #f2f4ea; }
-
-.tarjeta-pago .icono-doc {
-  width: 46px; height: 46px;
-  display: flex; align-items: center; justify-content: center;
+.tarjeta-pago:first-child{
+    background:#eef3fb;
+    border-left:none;
 }
 
+.tarjeta-pago:last-child{
+    background:#f2f4ea;
+}
+
+.tarjeta-pago .icono-doc{
+    grid-row:1 / span 3;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.tarjeta-pago .icono-doc img{
+    width:95px;
+    height:auto;
+    display:block;
+}
 .tarjeta-pago h3 { font-size: 19px; color: var(--azul-oscuro); }
 .tarjeta-pago p { font-size: 13.5px; color: var(--gris-texto); max-width: 220px; }
 
