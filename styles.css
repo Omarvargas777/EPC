@@ -562,24 +562,28 @@ button { font-family: inherit; cursor: pointer; border: none; }
    Banner encuesta
 --------------------------------------------------------- */
 .encuesta {
-  background: linear-gradient(90deg, var(--azul-oscuro) 0%, var(--azul-medio) 70%, var(--azul-boton) 100%);
+  background-image: url("images/fondo-encuesta.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   border-radius: var(--radio-l);
   color: var(--blanco);
   display: flex;
   align-items: center;
   gap: 28px;
-  padding: 20px 36px;
+  padding: 35px 40px;
   overflow: hidden;
   position: relative;
-  flex-wrap: wrap;
 }
 
-.encuesta img.persona {
-  width: 90px; height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid rgba(255,255,255,.6);
-  flex-shrink: 0;
+.encuesta img.persona{
+    width:150px;
+    height:150px;
+    object-fit:contain;
+    border:none;
+    background:none;
+    flex-shrink:0;
 }
 
 .encuesta .emoji { font-size: 26px; margin: 0 6px; }
