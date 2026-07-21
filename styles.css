@@ -323,38 +323,78 @@ button { font-family: inherit; cursor: pointer; border: none; }
 /* ---------------------------------------------------------
    Barra de accesos con íconos (Quiénes somos, Acueducto...)
 --------------------------------------------------------- */
-.barra-iconos {
-  background: var(--azul-oscuro-2);
-  position: relative;
-  z-index: 3;
-  margin-top: -46px;
+/* ---------------------------------------------------------
+   Barra de accesos con íconos
+--------------------------------------------------------- */
+
+.barra-iconos{
+    position:relative;
+    z-index:20;
+    margin-top:-60px;
+    background:transparent;
 }
 
-.barra-iconos .contenedor {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  gap: 8px;
-  padding-top: 22px;
-  padding-bottom: 22px;
+.barra-iconos .contenedor{
+    display:grid;
+    grid-template-columns:repeat(9,1fr);
+    gap:0;
+
+    background:linear-gradient(90deg,#0b2c52 0%,#14487f 100%);
+    border-radius:22px;
+
+    box-shadow:0 18px 40px rgba(11,44,82,.28);
+
+    padding:28px 12px;
 }
 
-.barra-iconos .item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  text-align: center;
-  color: var(--blanco);
-  font-size: 12.5px;
-  font-weight: 600;
+.barra-iconos .item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    color:#fff;
+
+    min-height:120px;
+
+    font-size:14px;
+    font-weight:600;
+
+    position:relative;
+
+    transition:.25s;
 }
 
-.barra-iconos .item .icono {
-  width: 30px; height: 30px;
-  display: flex; align-items: center; justify-content: center;
+.barra-iconos .item:hover{
+    background:rgba(255,255,255,.05);
 }
 
-.barra-iconos .item svg { width: 26px; height: 26px; stroke: var(--blanco); fill: none; }
+.barra-iconos .item:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:20px;
+    bottom:20px;
+    width:1px;
+    background:rgba(255,255,255,.15);
+}
+
+.barra-iconos .item .icono{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:12px;
+}
+
+.barra-iconos .item svg{
+    width:30px;
+    height:30px;
+    stroke:#fff;
+    fill:none;
+}
 
 /* ---------------------------------------------------------
    Simplifica tu pago
