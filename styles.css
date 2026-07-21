@@ -339,6 +339,9 @@ button { font-family: inherit; cursor: pointer; border: none; }
     grid-template-columns:repeat(9,1fr);
     gap:0;
 
+    max-width:1140px;
+    margin:0 auto;
+
     background:linear-gradient(90deg,#0b2c52 0%,#14487f 100%);
     border-radius:22px;
 
