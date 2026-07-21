@@ -411,17 +411,28 @@ button { font-family: inherit; cursor: pointer; border: none; }
   box-shadow: var(--sombra);
 }
 
-.pago-izquierda {
-  background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%);
-  color: var(--blanco);
-  padding: 48px 40px;
-  width: 32%;
-  min-width: 260px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
+.pago-izquierda{
+    background:
+    linear-gradient(rgba(11,44,82,.15),rgba(11,44,82,.15)),
+    url("images/fondo-pagos.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    color:var(--blanco);
+
+    padding:48px 40px;
+
+    width:32%;
+    min-width:260px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    position:relative;
+    overflow:hidden;
 }
 
 .pago-izquierda h2 {
