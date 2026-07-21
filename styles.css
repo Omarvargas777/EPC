@@ -562,9 +562,9 @@ button { font-family: inherit; cursor: pointer; border: none; }
    Banner encuesta
 --------------------------------------------------------- */
 .encuesta {
-  background-image: url("images/fondo-encuesta.png");
+  background-image: url("images/fondo-encuesta.jpg"); /* o .png si ese es el archivo */
   background-size: cover;
-  background-position: center;
+  background-position: right center;
   background-repeat: no-repeat;
 
   border-radius: var(--radio-l);
@@ -573,13 +573,14 @@ button { font-family: inherit; cursor: pointer; border: none; }
   align-items: center;
   gap: 28px;
   padding: 35px 40px;
+  min-height: 210px;
   overflow: hidden;
   position: relative;
 }
 
 .encuesta img.persona{
-    width:150px;
-    height:150px;
+    width:250px;
+    height:250px;
     object-fit:contain;
     border:none;
     background:none;
