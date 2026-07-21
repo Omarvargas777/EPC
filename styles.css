@@ -838,13 +838,8 @@ button { font-family: inherit; cursor: pointer; border: none; }
 
 .pie-inferior .enlaces { display: flex; gap: 20px; flex-wrap: wrap; }
 
-.pie::after {
-  content: "";
-  position: absolute;
-  right: -40px; bottom: -40px;
-  width: 260px; height: 260px;
-  background: radial-gradient(circle at 30% 30%, rgba(124,177,67,.25), transparent 70%);
-  z-index: 1;
+.pie::after{
+    display:none;
 }
 
 /* ---------------------------------------------------------
