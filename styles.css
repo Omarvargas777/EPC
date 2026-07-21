@@ -778,12 +778,16 @@ button { font-family: inherit; cursor: pointer; border: none; }
 /* ---------------------------------------------------------
    Footer
 --------------------------------------------------------- */
-.pie {
-  background: var(--azul-oscuro);
-  color: #cfd9e6;
-  padding: 56px 0 0;
-  position: relative;
-  overflow: hidden;
+.pie{
+    background-image:url("images/fondo-footer.jpg");
+    background-size:cover;
+    background-position:right bottom;
+    background-repeat:no-repeat;
+
+    color:#cfd9e6;
+    padding:56px 0 0;
+    position:relative;
+    overflow:hidden;
 }
 
 .pie-grid {
